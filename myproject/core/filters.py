@@ -1,8 +1,12 @@
-from django.contrib.auth.models import User
+from django import forms
+from django.contrib.auth.models import User, Group
 import django_filters
 
 
 class UserFilter(django_filters.FilterSet):
+    groups = django_filters.ModelMultipleChoiceFilter(
+        queryset=Group.objects.all(),
+        widget=forms.CheckboxSelectMultiple)
 
     class Meta:
         model = User
