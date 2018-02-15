@@ -8,6 +8,14 @@ class UserFilter(django_filters.FilterSet):
         name='date_joined',
         lookup_expr='year'
     )
+    year_joined__gt = django_filters.NumberFilter(
+        name='date_joined',
+        lookup_expr='year__gt'
+    )
+    year_joined__lt = django_filters.NumberFilter(
+        name='date_joined',
+        lookup_expr='year__lt'
+    )
 
     class Meta:
         model = User
